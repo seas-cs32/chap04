@@ -1,7 +1,6 @@
 This directory contains everything needed for
-Chapter 4 (i.e., Problem 4 in Act I, Scene II (Communities)).
-
-**Files for STUDENTS**
+**Chapter 4 (Query a Web Resource)** in
+*Computational Thinking and Problem Solving*.
 
 `qweb[1-8].py`: Scripts used to explain network programming.
 
