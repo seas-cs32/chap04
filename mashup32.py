@@ -12,7 +12,7 @@ def walpha(query, appid):
                 'podtitle': 'Result'
                 }
     )
-    assert(response.status_code == 200)
+    assert response.status_code == 200
 
     jlike_response = xmltodict.parse(response.text)
     answer = jlike_response["queryresult"]["pod"]["subpod"]["plaintext"]
@@ -34,7 +34,7 @@ def main():
     w_answer = walpha(w_query, appid)
     w_num, w_magnitude, w_units = w_answer.split()[0:3]
 
-    assert(h_magnitude == w_magnitude)
+    assert h_magnitude == w_magnitude, 'fix assumption in code'
     h_num, w_num = float(h_num), float(w_num)
     if h_num > w_num:
         print(f'Harvard Library has more {h_units} ({h_num} {h_magnitude})',
