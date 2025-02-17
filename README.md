@@ -7,3 +7,5 @@ by Michael D. Smith.
 
 `mashup32.py`: Script illustrating a simple network mashup script using
 Wolfram|Alpha. It is discussed in ALE 4.4.
+
+`ale05.py`, `ale05_step1.py`: Scripts used in ALE 4.5.
