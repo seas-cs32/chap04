@@ -10,7 +10,7 @@ def h_lib(book):
     url = protocol + '://' + hostname + path
 
     # Describe the query string as a Python dictionary
-    query = {'q': book, 'limit': 5}
+    query = {'q': book, 'limit': 15}
 
     # Add a field to the request header saying what we accept
     accept = {'Accept': 'application/json'}

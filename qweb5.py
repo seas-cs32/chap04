@@ -18,7 +18,10 @@ def main():
              'format': 'json'
     }
 
-    response = requests.get(url, params=query)
+    # Add a field to the request header to comply with Wikipedia's Robot policy
+    user_agent = {'User-Agent':'web-query-demo (https://beta.my.harvard.edu/course/COMPSCI32/2026-Spring)'}
+
+    response = requests.get(url, params=query, headers=user_agent)
 
     # Print the response headers with a line per key
     print("response.headers =")

@@ -39,7 +39,7 @@ def main():
                 ti = ti[0]
             print(f"Title #{i}: ", end='')
             if 'nonSort' in ti:
-                print(ti['nonSort'], end='')
+                print(ti['nonSort']['#text'].rstrip() + ' ', end='')
             print(ti['title'])
 
 if __name__ == '__main__':

@@ -10,9 +10,14 @@ def main():
     path = '/w/api.php'
     query = '?action=query&list=search&srsearch=The+Cat+in+the+Hat&srlimit=1&format=json'
 
-    # Build the URL and launch a `get` request
+    # Build the URL
     url = f"{protocol}://{hostname}{path}{query}"
-    response = requests.get(url)
+
+    # Add a field to the request header to comply with Wikipedia's Robot policy
+    user_agent = {'User-Agent':'web-query-demo (https://beta.my.harvard.edu/course/COMPSCI32/2026-Spring)'}
+
+    # Launch a `get` request
+    response = requests.get(url, headers=user_agent)
 
     if response.status_code == 200:
         print(f"Our request to Wikipedia succeeded!")

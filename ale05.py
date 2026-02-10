@@ -31,6 +31,13 @@ def main():
         j = fake_response
         print("fake_response =", json.dumps(j, indent=4))
     else:
+        # Check response status code
+        if response.status_code == 200:
+            print(f"Our request to Wikipedia succeeded!")
+        else:
+            print(f"Hmmm, something might have gone wrong. Status code: {response.status_code}")
+            exit()
+
         # Read the response body in JSON format and print it
         j = response.json()
         print("response.json() =", json.dumps(j, indent=4))
@@ -48,8 +55,8 @@ def main():
                 # Lots of title info; just print the first
                 ti = ti[0]
             print(f"Title #{i}: ", end='')
-            if 'nonSort' in ti:
-                print(ti['nonSort'], end='')
+            if not STEP1 and 'nonSort' in ti:
+                print(ti['nonSort']['#text'].rstrip() + ' ', end='')
             print(ti['title'])
 
             # STEP 1: Print author info from fake_response
