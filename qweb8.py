@@ -17,6 +17,13 @@ def h_lib(book):
 
     response = requests.get(url, params=query, headers=accept)
 
+    # Check response status code
+    if response.status_code == 200:
+        print(f"Our request to Wikipedia succeeded!")
+    else:
+        print(f"Hmmm, something might have gone wrong. Status code: {response.status_code}")
+        exit()
+
     # Return a list of matching items from the received response
     if response.json()['pagination']['numFound'] == 0:
         return []

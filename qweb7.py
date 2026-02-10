@@ -21,6 +21,13 @@ def main():
 
     response = requests.get(url, params=query, headers=accept)
 
+    # Check response status code
+    if response.status_code == 200:
+        print(f"Our request to Wikipedia succeeded!")
+    else:
+        print(f"Hmmm, something might have gone wrong. Status code: {response.status_code}")
+        exit()
+
     # Read the response body in JSON format and print it
     j = response.json()
     print("response.json() =", json.dumps(j, indent=4))
